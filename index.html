@@ -1,149 +1,130 @@
 <!DOCTYPE html>
 <html lang="si">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ලක්ෂිත සහ තිළිණි - විවාහ මංගල්‍යය</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ලක්ෂිත සහ තිළිණි - විවාහ මංගල්‍යය</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Sinhala:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
-    <meta property="og:title" content="ලක්ෂිත සහ තිළිණිගේ විවාහ මංගල්‍යය">
-    <meta property="og:description" content="2025 මාර්තු මස නව වනදා - අපගේ විවාහ මංගල්‍යයට ඔබ සැමට ආදරයෙන් ආරාධනා කරමු">
-    <meta property="og:image" content="preview-photo.jpg">
-    <meta property="og:type" content="website">
+<style>
+body, html {
+  margin:0; padding:0;
+  height:100%;
+  font-family: 'Noto Serif Sinhala', serif;
+  background: linear-gradient(to bottom, #ffe6e6, #fff9f0);
+  overflow-x: hidden;
+  position: relative;
+}
 
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Sinhala:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js"></script>
+/* Floating Hearts & Lights */
+@keyframes floatUp {
+  0% { transform: translateY(100vh) scale(0.5); opacity: 0; }
+  50% { opacity: 1; }
+  100% { transform: translateY(-20vh) scale(1); opacity: 0; }
+}
 
-    <style>
-        :root {
-            --glass: rgba(255, 255, 255, 0.92);
-            --gold: #b8860b;
-            --text: #2c3e50;
-        }
+.heart, .light {
+  position: absolute;
+  bottom: -50px;
+  font-size: 1.5rem;
+  animation: floatUp linear infinite;
+}
 
-        body, html {
-            margin: 0; padding: 0;
-            font-family: 'Noto Serif Sinhala', serif;
-            color: var(--text);
-            background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
-            min-height: 100vh;
-            scroll-behavior: smooth;
-        }
+.heart { color: #ff6b81; }
+.light { color: #ffe066; }
 
-        #lottie-bg {
-            position: fixed;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            z-index: -1;
-            opacity: 0.5;
-            pointer-events: none;
-        }
+/* Random positions and durations */
+.heart:nth-child(1){ left:10%; animation-duration:8s; animation-delay:0s; }
+.heart:nth-child(2){ left:30%; animation-duration:10s; animation-delay:2s; }
+.heart:nth-child(3){ left:50%; animation-duration:12s; animation-delay:4s; }
+.heart:nth-child(4){ left:70%; animation-duration:9s; animation-delay:1s; }
+.heart:nth-child(5){ left:90%; animation-duration:11s; animation-delay:3s; }
 
-        .main-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 20px;
-        }
+.light:nth-child(1){ left:15%; animation-duration:15s; animation-delay:1s; }
+.light:nth-child(2){ left:45%; animation-duration:18s; animation-delay:3s; }
+.light:nth-child(3){ left:75%; animation-duration:20s; animation-delay:2s; }
 
-        .card {
-            background: var(--glass);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border-radius: 30px;
-            padding: 40px 25px;
-            margin: 20px 0;
-            width: 88%;
-            max-width: 500px;
-            text-align: center;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.05);
-            border: 1px solid rgba(184, 134, 11, 0.2);
-        }
+/* Main card */
+.container {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 50px 20px;
+}
 
-        h1 { font-size: 2.4rem; color: var(--gold); margin: 15px 0; }
-        h2 { font-size: 1.6rem; color: var(--gold); margin-bottom: 25px; border-bottom: 2px solid var(--gold); display: inline-block; padding-bottom: 5px; }
+.card {
+  background: rgba(255,255,255,0.85);
+  backdrop-filter: blur(10px);
+  border-radius: 30px;
+  padding: 40px 20px;
+  margin: 20px auto;
+  max-width: 500px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  border: 1px solid rgba(184, 134, 11, 0.2);
+}
 
-        .event-row {
-            display: flex; justify-content: space-between;
-            padding: 15px 0; border-bottom: 1px dashed #ddd;
-            font-size: 1.1rem;
-        }
+h1 { font-size: 2.4rem; color: #b8860b; margin: 15px 0; }
+h2 { font-size: 1.6rem; color: #b8860b; margin-bottom: 20px; border-bottom: 2px solid #b8860b; display:inline-block; padding-bottom:5px; }
 
-        .map-wrapper {
-            width: 100%; height: 350px;
-            border-radius: 20px; overflow: hidden;
-            margin-top: 25px; border: 3px solid white;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
+.event-row { display:flex; justify-content:space-between; padding:10px 0; border-bottom: 1px dashed #ddd; font-size: 1.1rem; }
 
-        .dock {
-            position: fixed; bottom: 25px; width: 100%;
-            display: flex; justify-content: center; gap: 15px; z-index: 1000;
-        }
-        .btn {
-            padding: 14px 28px; border-radius: 50px;
-            text-decoration: none; font-weight: bold; color: white;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
-            display: flex; align-items: center; gap: 10px;
-        }
-        .wa { background: #25d366; }
-        .ph { background: var(--gold); }
-
-        @media (max-width: 480px) {
-            h1 { font-size: 2rem; }
-            .card { width: 92%; }
-        }
-    </style>
+.dock {
+  margin-top: 30px;
+  display:flex;
+  justify-content:center;
+  gap: 15px;
+}
+.btn {
+  padding: 12px 25px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: bold;
+  color:white;
+  background:#b8860b;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+.wa { background: #25d366; }
+</style>
 </head>
 <body>
 
-    <!-- Lottie Background -->
-    <div id="lottie-bg"></div>
+<!-- Floating Hearts -->
+<div class="heart">❤️</div>
+<div class="heart">❤️</div>
+<div class="heart">❤️</div>
+<div class="heart">❤️</div>
+<div class="heart">❤️</div>
 
-    <div class="main-container">
-        <section class="card" style="margin-top: 5vh;">
-            <p>අපගේ විවාහ මංගල්‍යයට ඔබ සැමට ආදරයෙන් ආරාධනා කරමු</p>
-            <h1>ලක්ෂිත සහ තිළිණි</h1>
-            <hr style="width: 80px; border: 1px solid var(--gold); margin: 20px auto;">
-            <p style="font-weight: 700; font-size: 1.4rem; color: var(--gold);">2025 ____ මස ____ වනදා</p>
-        </section>
+<!-- Floating Lights -->
+<div class="light">✨</div>
+<div class="light">✨</div>
+<div class="light">✨</div>
 
-        <section class="card">
-            <h2>වැඩසටහන</h2>
-            <div class="event-row"><span>🕘 ආරම්භය</span> <b>පෙ.ව. 09:00</b></div>
-            <div class="event-row"><span>🕤 පෝරුවේ චාරිත්‍ර</span> <b>පෙ.ව. 09:30</b></div>
-            <div class="event-row"><span>🕙 තේ පැන් සංග්‍රහය</span> <b>පෙ.ව. 10:30</b></div>
-            <div class="event-row"><span>🕚 භෝජන සංග්‍රහය</span> <b>පෙ.ව. 11:30</b></div>
-        </section>
+<div class="container">
+  <div class="card">
+    <p>අපගේ විවාහ මංගල්‍යයට ඔබ සැමට ආදරයෙන් ආරාධනා කරමු</p>
+    <h1>ලක්ෂිත සහ තිළිණි</h1>
+    <p style="font-weight:700; font-size:1.2rem; color:#b8860b;">2025 ____ මස ____ වනදා</p>
+  </div>
 
-        <section class="card">
-            <h2>පැමිණෙන ආකාරය</h2>
-            <p>📍 <b>ස්ථානය:</b> Soba Lanka Holiday Resort</p>
-            <div class="map-wrapper">
-                <iframe 
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3300.5961048190084!2d80.50351027405387!3d7.625318109381633!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae34b065b4b3de9%3A0xbb2270377f38c358!2sSoba%20Lanka%20Holiday%20Resort!5e1!3m2!1sen!2slk!4v1765949337718!5m2!1sen!2slk" 
-                    width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy">
-                </iframe>
-            </div>
-            <p style="font-size: 0.8rem; margin-top: 12px; color: #666;">Click on the map to navigate via Google Maps</p>
-        </section>
+  <div class="card">
+    <h2>වැඩසටහන</h2>
+    <div class="event-row"><span>🕘 ආරම්භය</span> <b>පෙ.ව. 09:00</b></div>
+    <div class="event-row"><span>🕤 පෝරුවේ චාරිත්‍ර</span> <b>පෙ.ව. 09:30</b></div>
+    <div class="event-row"><span>🕙 තේ පැන් සංග්‍රහය</span> <b>පෙ.ව. 10:30</b></div>
+    <div class="event-row"><span>🕚 භෝජන සංග්‍රහය</span> <b>පෙ.ව. 11:30</b></div>
+  </div>
 
-        <p style="margin: 50px 0 130px 0; font-weight: bold; text-align: center; color: #777;">ඔබේ පැමිණීම අපට මහත් සතුටකි ❤️</p>
-    </div>
+  <div class="card">
+    <h2>ස්ථානය</h2>
+    <p>📍 Soba Lanka Holiday Resort</p>
+  </div>
 
-    <div class="dock">
-        <a href="https://wa.me/94776293107?text=ලක්ෂිත සහ තිළිණිගේ විවාහ මංගල්‍යයට මම සහභාගී වෙනවා!" class="btn wa" target="_blank">WhatsApp RSVP</a>
-        <a href="tel:0719413286" class="btn ph">📞 අමතන්න</a>
-    </div>
-
-    <script>
-        var animation = lottie.loadAnimation({
-            container: document.getElementById('lottie-bg'),
-            renderer: 'svg',
-            loop: true,
-            autoplay: true,
-            path: 'https://raw.githubusercontent.com/lakshitha150/wedding/main/wedding-animation.json'
-        });
-    </script>
+  <div class="dock">
+    <a href="https://wa.me/94776293107" class="btn wa" target="_blank">WhatsApp RSVP</a>
+    <a href="tel:0719413286" class="btn">📞 අමතන්න</a>
+  </div>
+</div>
 
 </body>
 </html>
