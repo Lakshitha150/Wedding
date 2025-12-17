@@ -240,6 +240,18 @@ h2 { font-size: 1.6rem; color: #b8860b; margin-bottom: 20px; border-bottom: 2px 
   window.addEventListener('scroll', revealOnScroll);
   window.addEventListener('load', revealOnScroll);
 </script>
+<script>
+  const heartsAndLights = document.querySelectorAll('.heart, .light');
+
+  window.addEventListener('scroll', () => {
+    const scrollY = window.scrollY;
+    heartsAndLights.forEach((el, i) => {
+      // small vertical movement based on scroll
+      el.style.transform = `translateY(${100 - scrollY * 0.05 + i*10}px) scale(1)`;
+    });
+  });
+</script>
+
 
 </body>
 </html>
