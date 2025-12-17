@@ -1,4 +1,4 @@
-# Singple Wedding Invitation Landing Page 
+# Single Wedding Invitation Landing Page 
 
 
 # Section/Feature
