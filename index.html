@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
     <title>ලක්ෂිත සහ තිළිණි - විවාහ මංගල්‍යය</title>
 
     <meta property="og:title" content="ලක්ෂිත සහ තිළිණිගේ විවාහ මංගල්‍යය">
     <meta property="og:description" content="2025 මාර්තු මස නව වනදා - අපගේ විවාහ මංගල්‍යයට ඔබ සැමට ආදරයෙන් ආරාධනා කරමු">
-    <meta property="og:image" content="https://lakshitha150.github.io/wedding/preview-photo.jpg">
+    <meta property="og:image" content="preview-photo.jpg">
     <meta property="og:type" content="website">
 
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Sinhala:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js"></script>
+
     <style>
         :root {
             --glass: rgba(255, 255, 255, 0.92);
@@ -24,19 +24,17 @@
             margin: 0; padding: 0;
             font-family: 'Noto Serif Sinhala', serif;
             color: var(--text);
-            /* PREMIUM BACKGROUND: Silk-look gradient to prevent plain color */
             background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
             min-height: 100vh;
             scroll-behavior: smooth;
         }
 
-        /* ANIMATION CONTAINER: Full screen background */
         #lottie-bg {
             position: fixed;
             top: 0; left: 0;
             width: 100%; height: 100%;
             z-index: -1;
-            opacity: 0.5; /* Subtle movement */
+            opacity: 0.5;
             pointer-events: none;
         }
 
@@ -47,7 +45,6 @@
             padding: 20px;
         }
 
-        /* CARD STYLE: Modern Frosted Glass */
         .card {
             background: var(--glass);
             backdrop-filter: blur(10px);
@@ -71,7 +68,6 @@
             font-size: 1.1rem;
         }
 
-        /* YOUR WORKING MAP STYLE */
         .map-wrapper {
             width: 100%; height: 350px;
             border-radius: 20px; overflow: hidden;
@@ -79,7 +75,6 @@
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
 
-        /* BOTTOM DOCK BUTTONS */
         .dock {
             position: fixed; bottom: 25px; width: 100%;
             display: flex; justify-content: center; gap: 15px; z-index: 1000;
@@ -101,10 +96,10 @@
 </head>
 <body>
 
+    <!-- Lottie Background -->
     <div id="lottie-bg"></div>
 
     <div class="main-container">
-        
         <section class="card" style="margin-top: 5vh;">
             <p>අපගේ විවාහ මංගල්‍යයට ඔබ සැමට ආදරයෙන් ආරාධනා කරමු</p>
             <h1>ලක්ෂිත සහ තිළිණි</h1>
@@ -123,10 +118,10 @@
         <section class="card">
             <h2>පැමිණෙන ආකාරය</h2>
             <p>📍 <b>ස්ථානය:</b> Soba Lanka Holiday Resort</p>
-            
             <div class="map-wrapper">
                 <iframe 
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3300.5961048190084!2d80.50351027405387!3d7.625318109381633!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae34b065b4b3de9%3A0xbb2270377f38c358!2sSoba%20Lanka%20Holiday%20Resort!5e1!3m2!1sen!2slk!4v1765949337718!5m2!1sen!2slk" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3300.5961048190084!2d80.50351027405387!3d7.625318109381633!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae34b065b4b3de9%3A0xbb2270377f38c358!2sSoba%20Lanka%20Holiday%20Resort!5e1!3m2!1sen!2slk!4v1765949337718!5m2!1sen!2slk" 
+                    width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy">
                 </iframe>
             </div>
             <p style="font-size: 0.8rem; margin-top: 12px; color: #666;">Click on the map to navigate via Google Maps</p>
@@ -142,11 +137,11 @@
 
     <script>
         var animation = lottie.loadAnimation({
-            container: document.getElementById('lottie-bg'), 
+            container: document.getElementById('lottie-bg'),
             renderer: 'svg',
             loop: true,
             autoplay: true,
-            path: 'https://lottie.host/b6ac5e38-8099-4bd9-b9a6-3e3b75ccabd6/pyvqdv7uKp.json' 
+            path: 'wedding-animation.json' // <-- Local JSON file here
         });
     </script>
 
