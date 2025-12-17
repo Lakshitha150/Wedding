@@ -3,122 +3,92 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ලක්ෂිත සහ තිළිණි - විවාහ මංගල්‍යය</title>
+    <title>Lakshitha & Thilini Wedding</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Sinhala:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
     <style>
         :root {
-            --glass: rgba(255, 255, 255, 0.92);
+            --glass: rgba(255, 255, 255, 0.94);
             --gold: #b8860b;
             --text: #2c3e50;
         }
 
         body, html {
-            margin: 0;
-            padding: 0;
+            margin: 0; padding: 0;
             font-family: 'Noto Serif Sinhala', serif;
             color: var(--text);
-            background-color: #fffaf5;
-            overflow-x: hidden;
+            background-color: #fff;
+            scroll-behavior: smooth;
         }
 
-        /* පසුබිම් සජීවීකරණය (Lottie) */
+        /* Lottie Animation Background */
         #bg-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            z-index: -1;
+            position: fixed; top: 0; left: 0;
+            width: 100vw; height: 100vh; z-index: -1;
+            display: flex; justify-content: center; align-items: center;
+            background: #fdfaf6;
         }
-
         #bg-container iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-            transform: scale(1.6);
-            pointer-events: none;
+            width: 100%; height: 100%; border: none;
+            transform: scale(1.5); pointer-events: none;
         }
 
-        .main-content {
-            position: relative;
-            z-index: 1;
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+        .main-container {
+            display: flex; flex-direction: column; align-items: center; padding: 20px;
         }
 
-        /* විස්තර අඩංගු කාඩ් එක */
+        /* Modern Frosted Glass Cards */
         .card {
             background: var(--glass);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(212, 175, 55, 0.3);
-            border-radius: 30px;
-            padding: 40px 25px;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 25px;
+            padding: 40px 20px;
             margin: 20px 0;
-            width: 88%;
-            max-width: 500px;
+            width: 90%; max-width: 500px;
             text-align: center;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            border: 1px solid rgba(184, 134, 11, 0.2);
         }
 
-        .hero { height: 80vh; display: flex; align-items: center; justify-content: center; }
+        h1 { font-size: 2.3rem; color: var(--gold); margin: 15px 0; }
+        h2 { font-size: 1.5rem; color: var(--gold); margin-bottom: 20px; text-decoration: underline; text-underline-offset: 8px; }
         
-        h1 { font-size: 2.4rem; color: var(--gold); margin: 10px 0; line-height: 1.2; }
-        h2 { font-size: 1.6rem; color: var(--gold); margin-bottom: 25px; border-bottom: 2px solid var(--gold); display: inline-block; padding-bottom: 5px; }
-        
-        .time-row {
-            display: flex;
-            justify-content: space-between;
-            margin: 18px 0;
-            border-bottom: 1px dashed #d4af37;
-            padding-bottom: 10px;
-            font-size: 1.1rem;
+        .event-row {
+            display: flex; justify-content: space-between;
+            padding: 12px 0; border-bottom: 1px dashed #ddd;
+            font-size: 1.05rem;
         }
 
-        /* සිතියම (Map) */
-        .map-container {
+        /* Map Styling */
+        .map-wrapper {
             width: 100%;
-            height: 300px;
-            border-radius: 20px;
+            height: 400px; /* Medium height */
+            border-radius: 15px;
             overflow: hidden;
             margin-top: 20px;
-            border: 3px solid white;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border: 2px solid #eee;
         }
 
-        /* පහළ ඇති බොත්තම් (Contact Buttons) */
-        .contact-bar {
-            position: fixed;
-            bottom: 25px;
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            z-index: 100;
+        /* Floating Contact Buttons for Mobile */
+        .dock {
+            position: fixed; bottom: 20px; width: 100%;
+            display: flex; justify-content: center; gap: 15px; z-index: 1000;
         }
-
-        .btn-float {
-            padding: 14px 25px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1rem;
-            display: flex;
-            align-items: center;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.25);
-            transition: 0.3s;
+        .btn {
+            padding: 12px 25px; border-radius: 50px;
+            text-decoration: none; font-weight: bold; color: white;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            font-size: 0.9rem;
+            display: flex; align-items: center; gap: 8px;
         }
+        .wa { background: #25d366; }
+        .ph { background: var(--gold); }
 
-        .whatsapp { background-color: #25d366; color: white; }
-        .mobile { background-color: #b8860b; color: white; }
-
-        @media (max-width: 600px) {
-            h1 { font-size: 2rem; }
-            .card { width: 92%; padding: 30px 15px; }
+        @media (max-width: 480px) {
+            h1 { font-size: 1.9rem; }
+            .map-wrapper { height: 300px; }
         }
     </style>
 </head>
@@ -128,47 +98,46 @@
         <iframe src="https://lottie.host/embed/b6ac5e38-8099-4bd9-b9a6-3e3b75ccabd6/pyvqdv7uKp.lottie"></iframe>
     </div>
 
-    <div class="main-content">
+    <div class="main-container">
         
-        <section class="hero">
-            <div class="card">
-                <p style="font-size: 1.1rem; margin-bottom: 0;">අපගේ විවාහ මංගල්‍යයට</p>
-                <p style="font-size: 1.1rem;">ඔබ සැමට ආදරයෙන් ආරාධනා කරමු!</p>
-                <h1>ලක්ෂිත සහ තිළිණි</h1>
-                <hr style="width: 80px; border: 1px solid var(--gold); margin: 20px auto;">
-                <p style="font-size: 1.2rem; font-weight: 700; color: #b8860b;">2025 ____ මස ____ වනදා</p>
-            </div>
+        <section class="card" style="margin-top: 8vh;">
+            <p style="font-size: 1.1rem;">අපගේ විවාහ මංගල්‍යයට ඔබ සැමට ආදරයෙන් ආරාධනා කරමු</p>
+            <h1>ලක්ෂිත සහ තිළිණි</h1>
+            <hr style="width: 60px; border: 1px solid var(--gold); margin: 15px auto;">
+            <p style="font-weight: bold; font-size: 1.3rem; color: var(--gold);">2025 ____ මස ____ වනදා</p>
         </section>
 
-        <section id="plan" class="card">
-            <h2>වැඩසටහන සැලැස්ම</h2>
-            <div class="time-row"><span>🕘 ආරම්භය</span> <b>පෙ.ව. 09:00</b></div>
-            <div class="time-row"><span>🕤 පෝරුවේ චාරිත්‍ර</span> <b>පෙ.ව. 09:30</b></div>
-            <div class="time-row"><span>🕙 තේ පැන් සංග්‍රහය</span> <b>පෙ.ව. 10:30</b></div>
-            <div class="time-row"><span>🕚 භෝජන සංග්‍රහය</span> <b>පෙ.ව. 11:30</b></div>
+        <section class="card">
+            <h2>වැඩසටහන</h2>
+            <div class="event-row"><span>🕘 ආරම්භය</span> <b>පෙ.ව. 09:00</b></div>
+            <div class="event-row"><span>🕤 පෝරුවේ චාරිත්‍ර</span> <b>පෙ.ව. 09:30</b></div>
+            <div class="event-row"><span>🕙 තේ පැන් සංග්‍රහය</span> <b>පෙ.ව. 10:30</b></div>
+            <div class="event-row"><span>🕚 භෝජන සංග්‍රහය</span> <b>පෙ.ව. 11:30</b></div>
         </section>
 
-        <section id="location" class="card">
+        <section class="card">
             <h2>පැමිණෙන ආකාරය</h2>
-            <p>📍 <b>ස්ථානය:</b> <br> මෙතැනට උත්සව ශාලාවේ නම ඇතුලත් කරන්න</p>
+            <p>📍 <b>ස්ථානය:</b> [ඔබේ උත්සව ශාලාවේ නම මෙතැනට ලියන්න]</p>
             
-            <div class="map-container">
-                <iframe src="http://googleusercontent.com/maps.google.com/3" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <div class="map-wrapper">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.6!2d79.8!3d6.9!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNsKwNTQnMDAuMCJOIDc5wrA0OCc0MC4wIkU!5e0!3m2!1sen!2slk!4v123456789" 
+                    width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
             </div>
-            
-            <p style="font-size: 0.9rem; margin-top: 15px; color: #555;">සිතියම මත Click කර Google Maps හරහා මාර්ගය සොයාගත හැක.</p>
+            <p style="font-size: 0.8rem; margin-top: 12px; color: #666;">Click on the map to navigate via Google Maps</p>
         </section>
 
-        <p style="margin: 60px 0 120px 0; font-size: 1.1rem; text-align: center; color: #555;">අපගේ සතුට බෙදාගැනීමට ඔබත් පැමිණෙන්න ❤️</p>
+        <p style="margin: 40px 0 120px 0; font-weight: bold; text-align: center; color: #555;">ඔබේ පැමිණීම අපට මහත් සතුටකි ❤️</p>
 
     </div>
 
-    <div class="contact-bar">
-        <a href="https://wa.me/94776293107?text=ලක්ෂිත සහ තිළිණිගේ විවාහ උත්සවයට මම සහභාගී වෙනවා!" class="btn-float whatsapp" target="_blank">
-            WhatsApp
+    <div class="dock">
+        <a href="https://wa.me/94776293107?text=ලක්ෂිත සහ තිළිණිගේ විවාහ මංගල්‍යයට මම සහභාගී වෙනවා!" class="btn wa" target="_blank">
+            WhatsApp RSVP
         </a>
-        <a href="tel:0719413286" class="btn-float mobile">
-            📞 අමතන්න
+        <a href="tel:0719413286" class="btn ph">
+            Call Lakshitha
         </a>
     </div>
 
