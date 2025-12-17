@@ -3,15 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <title>ලක්ෂිත සහ තිළිණි - විවාහ මංගල්‍යය</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Sinhala:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
-    <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js"></script>
 
     <style>
         :root {
-            --glass: rgba(255, 255, 255, 0.94);
+            --glass: rgba(255, 255, 255, 0.92);
             --gold: #b8860b;
             --text: #2c3e50;
         }
@@ -20,94 +21,92 @@
             margin: 0; padding: 0;
             font-family: 'Noto Serif Sinhala', serif;
             color: var(--text);
-            background-color: #fdfaf6;
+            /* PREMIUM BACKGROUND: Silk-look gradient to prevent plain color */
+            background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
+            min-height: 100vh;
             scroll-behavior: smooth;
         }
 
-        /* ✅ FIXED ANIMATION STYLING */
-        #bg-container {
-            position: fixed; top: 0; left: 0;
-            width: 100vw; height: 100vh; z-index: -1;
-            display: flex; justify-content: center; align-items: center;
-            overflow: hidden;
-        }
-        dotlottie-player {
+        /* ANIMATION CONTAINER: Full screen background */
+        #lottie-bg {
+            position: fixed;
+            top: 0; left: 0;
             width: 100%; height: 100%;
-            transform: scale(1.5); /* Makes animation fill screen */
-            opacity: 0.7; /* Ensures text stays readable */
+            z-index: -1;
+            opacity: 0.5; /* Subtle movement */
+            pointer-events: none;
         }
 
         .main-container {
-            display: flex; flex-direction: column; align-items: center; padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
         }
 
+        /* CARD STYLE: Modern Frosted Glass */
         .card {
             background: var(--glass);
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
-            border-radius: 25px;
-            padding: 40px 20px;
+            border-radius: 30px;
+            padding: 40px 25px;
             margin: 20px 0;
-            width: 90%; max-width: 500px;
+            width: 88%;
+            max-width: 500px;
             text-align: center;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.05);
             border: 1px solid rgba(184, 134, 11, 0.2);
         }
 
-        h1 { font-size: 2.3rem; color: var(--gold); margin: 15px 0; }
-        h2 { font-size: 1.5rem; color: var(--gold); margin-bottom: 20px; text-decoration: underline; text-underline-offset: 8px; }
-        
+        h1 { font-size: 2.4rem; color: var(--gold); margin: 15px 0; }
+        h2 { font-size: 1.6rem; color: var(--gold); margin-bottom: 25px; border-bottom: 2px solid var(--gold); display: inline-block; padding-bottom: 5px; }
+
         .event-row {
             display: flex; justify-content: space-between;
-            padding: 12px 0; border-bottom: 1px dashed #ddd;
-            font-size: 1.05rem;
+            padding: 15px 0; border-bottom: 1px dashed #ddd;
+            font-size: 1.1rem;
         }
 
+        /* YOUR WORKING MAP STYLE */
         .map-wrapper {
-            width: 100%; height: 400px;
-            border-radius: 15px; overflow: hidden;
-            margin-top: 20px; border: 2px solid #eee;
+            width: 100%; height: 350px;
+            border-radius: 20px; overflow: hidden;
+            margin-top: 25px; border: 3px solid white;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
 
+        /* BOTTOM DOCK BUTTONS */
         .dock {
-            position: fixed; bottom: 20px; width: 100%;
+            position: fixed; bottom: 25px; width: 100%;
             display: flex; justify-content: center; gap: 15px; z-index: 1000;
         }
         .btn {
-            padding: 12px 25px; border-radius: 50px;
+            padding: 14px 28px; border-radius: 50px;
             text-decoration: none; font-weight: bold; color: white;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-            font-size: 0.9rem;
-            display: flex; align-items: center; gap: 8px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+            display: flex; align-items: center; gap: 10px;
         }
         .wa { background: #25d366; }
         .ph { background: var(--gold); }
 
         @media (max-width: 480px) {
-            h1 { font-size: 1.9rem; }
-            .map-wrapper { height: 300px; }
+            h1 { font-size: 2rem; }
+            .card { width: 92%; }
         }
     </style>
 </head>
 <body>
 
-    <div id="bg-container">
-        <dotlottie-player 
-            src="https://lottie.host/b6ac5e38-8099-4bd9-b9a6-3e3b75ccabd6/pyvqdv7uKp.lottie" 
-            background="transparent" 
-            speed="1" 
-            loop 
-            autoplay>
-        </dotlottie-player>
-    </div>
+    <div id="lottie-bg"></div>
 
     <div class="main-container">
         
-        <section class="card" style="margin-top: 8vh;">
-            <p style="font-size: 1.1rem;">අපගේ විවාහ මංගල්‍යයට ඔබ සැමට ආදරයෙන් ආරාධනා කරමු</p>
+        <section class="card" style="margin-top: 5vh;">
+            <p>අපගේ විවාහ මංගල්‍යයට ඔබ සැමට ආදරයෙන් ආරාධනා කරමු</p>
             <h1>ලක්ෂිත සහ තිළිණි</h1>
-            <hr style="width: 60px; border: 1px solid var(--gold); margin: 15px auto;">
-            <p style="font-weight: bold; font-size: 1.3rem; color: var(--gold);">2025 ____ මස ____ වනදා</p>
+            <hr style="width: 80px; border: 1px solid var(--gold); margin: 20px auto;">
+            <p style="font-weight: 700; font-size: 1.4rem; color: var(--gold);">2025 ____ මස ____ වනදා</p>
         </section>
 
         <section class="card">
@@ -120,7 +119,7 @@
 
         <section class="card">
             <h2>පැමිණෙන ආකාරය</h2>
-            <p>📍 <b>ස්ථානය:</b> [Soba Lanka Holiday Resort]</p>
+            <p>📍 <b>ස්ථානය:</b> Soba Lanka Holiday Resort</p>
             
             <div class="map-wrapper">
                 <iframe 
@@ -130,18 +129,23 @@
             <p style="font-size: 0.8rem; margin-top: 12px; color: #666;">Click on the map to navigate via Google Maps</p>
         </section>
 
-        <p style="margin: 40px 0 120px 0; font-weight: bold; text-align: center; color: #555;">ඔබේ පැමිණීම අපට මහත් සතුටකි ❤️</p>
-
+        <p style="margin: 50px 0 130px 0; font-weight: bold; text-align: center; color: #777;">ඔබේ පැමිණීම අපට මහත් සතුටකි ❤️</p>
     </div>
 
     <div class="dock">
-        <a href="https://wa.me/94776293107?text=ලක්ෂිත සහ තිළිණිගේ විවාහ මංගල්‍යයට මම සහභාගී වෙනවා!" class="btn wa" target="_blank">
-            WhatsApp RSVP
-        </a>
-        <a href="tel:0719413286" class="btn ph">
-            Call Lakshitha
-        </a>
+        <a href="https://wa.me/94776293107?text=ලක්ෂිත සහ තිළිණිගේ විවාහ මංගල්‍යයට මම සහභාගී වෙනවා!" class="btn wa" target="_blank">WhatsApp RSVP</a>
+        <a href="tel:0719413286" class="btn ph">📞 අමතන්න</a>
     </div>
+
+    <script>
+        var animation = lottie.loadAnimation({
+            container: document.getElementById('lottie-bg'), 
+            renderer: 'svg',
+            loop: true,
+            autoplay: true,
+            path: 'https://lottie.host/b6ac5e38-8099-4bd9-b9a6-3e3b75ccabd6/pyvqdv7uKp.json' 
+        });
+    </script>
 
 </body>
 </html>
