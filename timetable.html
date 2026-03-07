@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="si">
+<head>
+<meta charset="UTF-8">
+<title>Time Table</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #000;
+    text-align: center;
+}
+
+/* Timetable image full width */
+.timetable-img {
+    width: 100%;
+    max-width: none;
+    height: auto;
+    display: block;
+}
+
+/* Floating Top-Middle Back button */
+.floating-back {
+    position: fixed;
+    top: 20px;            /* distance from top */
+    left: 50%;            /* horizontal center */
+    transform: translateX(-50%);
+    padding: 16px 40px;
+    font-size: 20px;
+    font-weight: bold;
+    background: rgba(8, 8, 8, 0.85); /* semi-transparent red */
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+    z-index: 1000;
+    transition: 0.3s;
+}
+
+.floating-back:hover {
+    background: rgba(185, 77, 77, 0.95);
+}
+</style>
+</head>
+<body>
+
+<!-- Floating Top-Middle Back Button -->
+<a href="index.html" class="floating-back">මුල් පිටුව වෙත</a>
+
+<!-- Main Timetable Image -->
+<img src="image/timetable.jpg" alt="Wedding Time Table" class="timetable-img">
+
+</body>
+</html>
