@@ -5,7 +5,7 @@
 - Main Info
 - Countdown to D-Day
 - Time and Place Info
-- Add to Calendar Button (Google Calendar)
+- Add to Calendar Button (Google Calendar) -Currently change to Show Timetable (new page)
 - Map Direction Button (Google Map)
 - Send Message Button (Whatssapp API)
 
