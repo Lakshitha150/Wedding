@@ -1,50 +1,144 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wedding Photo Gallery</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            margin: 0;
-            padding: 20px;
-        }
-        .photo {
-            margin: 10px;
-            border: 2px solid #ddd;
-            border-radius: 4px;
-            overflow: hidden;
-            width: 300px;
-        }
-        .photo img {
-            width: 100%;
-            height: auto;
-        }
-        .caption {
-            text-align: center;
-            padding: 10px;
-            background-color: #f2f2f2;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="css/gallery.css">
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+<title>My Gallery</title>
+<style>
+/* --- Lightbox Styling --- */
+#lightbox {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.85);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    flex-direction: column;
+}
+
+#lightbox-img {
+    max-width: 90%;
+    max-height: 80%;
+    border-radius: 10px;
+    box-shadow: 0 0 20px #000;
+}
+
+#close, #prev, #next, #home {
+    color: white;
+    font-size: 30px;
+    font-weight: bold;
+    cursor: pointer;
+    user-select: none;
+    margin: 15px;
+}
+
+#close:hover, #prev:hover, #next:hover, #home:hover {
+    color: #ff69b4;
+}
+
+.lightbox-controls {
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    font-size: 22px;
+}
+</style>
 </head>
+
 <body>
-    <h1>Wedding Photo Gallery</h1>
-    <div class="photo">
-        <img src="image1.jpg" alt="Wedding Photo 1">
-        <div class="caption">Wedding Photo 1</div>
+<div id="wrapper">
+    <div class="container">
+        <h1 class="main-heading">My Gallery</h1>
+
+        <div class="gallery">
+            <figure class="card">
+                <img src="img/thumb_1.jpg" data-full="img/1.jpg" alt="Image 1">
+                <figcaption>Image 1</figcaption>
+            </figure>
+            <figure class="card">
+                <img src="img/thumb_2.jpg" data-full="img/2.jpg" alt="Image 2">
+                <figcaption>Image 2</figcaption>
+            </figure>
+            <figure class="card">
+                <img src="img/thumb_3.jpg" data-full="img/3.jpg" alt="Image 3">
+                <figcaption>Image 3</figcaption>
+            </figure>
+            <figure class="card">
+                <img src="img/thumb_4.jpg" data-full="img/4.jpg" alt="Image 4">
+                <figcaption>Image 4</figcaption>
+            </figure>
+            <figure class="card">
+                <img src="img/thumb_5.jpg" data-full="img/5.jpg" alt="Image 5">
+                <figcaption>Image 5</figcaption>
+            </figure>
+            <figure class="card">
+                <img src="img/thumb_6.jpg" data-full="img/6.jpg" alt="Image 6">
+                <figcaption>Image 6</figcaption>
+            </figure>
+        </div>
     </div>
-    <div class="photo">
-        <img src="image2.jpg" alt="Wedding Photo 2">
-        <div class="caption">Wedding Photo 2</div>
+</div>
+
+<!-- Lightbox modal -->
+<div id="lightbox">
+    <span id="close">&times;</span>
+    <img id="lightbox-img" src="" alt="Full Image">
+    <div class="lightbox-controls">
+        <span id="prev">&#10094; Previous</span>
+        <span id="next">Next &#10095;</span>
+        <span id="home">&#8962; Home</span>
     </div>
-    <div class="photo">
-        <img src="image3.jpg" alt="Wedding Photo 3">
-        <div class="caption">Wedding Photo 3</div>
-    </div>
-    <!-- Add more photos as needed -->
+</div>
+
+<script>
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.getElementById('lightbox-img');
+const closeBtn = document.getElementById('close');
+const prevBtn = document.getElementById('prev');
+const nextBtn = document.getElementById('next');
+const homeBtn = document.getElementById('home');
+
+const galleryImages = Array.from(document.querySelectorAll('.card img'));
+let currentIndex = 0;
+
+// Open lightbox when clicking thumbnail
+galleryImages.forEach((img, index) => {
+    img.addEventListener('click', () => {
+        currentIndex = index;
+        lightboxImg.src = img.dataset.full;
+        lightbox.style.display = 'flex';
+    });
+});
+
+// Close lightbox
+closeBtn.addEventListener('click', () => lightbox.style.display = 'none');
+lightbox.addEventListener('click', e => {
+    if(e.target === lightbox) lightbox.style.display = 'none';
+});
+
+// Go to previous image
+prevBtn.addEventListener('click', () => {
+    currentIndex = (currentIndex - 1 + galleryImages.length) % galleryImages.length;
+    lightboxImg.src = galleryImages[currentIndex].dataset.full;
+});
+
+// Go to next image
+nextBtn.addEventListener('click', () => {
+    currentIndex = (currentIndex + 1) % galleryImages.length;
+    lightboxImg.src = galleryImages[currentIndex].dataset.full;
+});
+
+// Go back to index.html (first page)
+homeBtn.addEventListener('click', () => {
+    window.location.href = 'index.html';
+});
+</script>
 </body>
 </html>
