@@ -63,3 +63,40 @@ $(document).ready(function($) {
 $(window).on('load', function() {
   $("body").addClass("preloader-site");
 });
+
+
+// Get URL parameter
+function getQueryParam(param) {
+  const urlParams = new URLSearchParams(window.location.search);
+  return urlParams.get(param);
+}
+
+// Get guest name and type
+const guestName = getQueryParam("name") || "ආදරණීය ආරාධිතයා";
+const type = getQueryParam("type")?.trim().toLowerCase();
+
+// Map type to invitation line
+let inviteLine = "";
+switch(type) {
+  case "mr":
+    inviteLine = "මහත්මයාගේ ගෞරවනීය පැමිණීම අපේක්ෂා කරමු";
+    break;
+  case "mrs":
+    inviteLine = "මහත්මියගේ ගෞරවනීය පැමිණීම අපේක්ෂා කරමු";
+    break;
+  case "miss":
+    inviteLine = "මහත්මියගේ ගෞරවනීය පැමිණීම අපේක්ෂා කරමු";
+    break;
+  case "family":
+    inviteLine = "පවුලේ සැමගේ ගෞරවනීය පැමිණීම අපේක්ෂා කරමු";
+    break;
+  case "couple":
+    inviteLine = "ඔබ දෙපළගේ ගෞරවනීය පැමිණීම අපේක්ෂා කරමු";
+    break;
+  default:
+    inviteLine = "ඔබගේ ගෞරවනීය පැමිණීම අපේක්ෂා කරමු";
+}
+
+// Set the text in HTML
+document.getElementById("invite-line").textContent = inviteLine;
+document.getElementById("guest-name").textContent = guestName;
