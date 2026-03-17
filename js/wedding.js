@@ -65,38 +65,44 @@ $(window).on('load', function() {
 });
 
 
-// Get URL parameter
+
+
+// Get URL parameters
 function getQueryParam(param) {
   const urlParams = new URLSearchParams(window.location.search);
   return urlParams.get(param);
 }
 
-// Get guest name and type
-const guestName = getQueryParam("name") || "ආදරණීය ආරාධිතයා";
+const guestName = getQueryParam("name") || "ආදරණීය";
 const type = getQueryParam("type")?.trim().toLowerCase();
 
-// Map type to invitation line
 let inviteLine = "";
 switch(type) {
-  case "mr":
-    inviteLine = "මහත්මයාගේ ගෞරවනීය පැමිණීම අපේක්ෂා කරමු";
-    break;
-  case "mrs":
-    inviteLine = "මහත්මියගේ ගෞරවනීය පැමිණීම අපේක්ෂා කරමු";
-    break;
-  case "miss":
-    inviteLine = "මහත්මියගේ ගෞරවනීය පැමිණීම අපේක්ෂා කරමු";
-    break;
-  case "family":
-    inviteLine = "පවුලේ සැමගේ ගෞරවනීය පැමිණීම අපේක්ෂා කරමු";
-    break;
-  case "couple":
-    inviteLine = "ඔබ දෙපළගේ ගෞරවනීය පැමිණීම අපේක්ෂා කරමු";
-    break;
-  default:
-    inviteLine = "ඔබගේ ගෞරවනීය පැමිණීම අපේක්ෂා කරමු";
+  case "mr": inviteLine = "මහත්මයාගේ ගෞරවනීය පැමිණීම අපේක්ෂා කරමු"; break;
+  case "mrs": inviteLine = "මහත්මියගේ ගෞරවනීය පැමිණීම අපේක්ෂා කරමු"; break;
+  case "miss": inviteLine = "මහත්මියගේ ගෞරවනීය පැමිණීම අපේක්ෂා කරමු"; break;
+  case "family": inviteLine = "පවුලේ සැමගේ ගෞරවනීය පැමිණීම අපේක්ෂා කරමු"; break;
+  case "couple": inviteLine = "ඔබ දෙපළගේ ගෞරවනීය පැමිණීම අපේක්ෂා කරමු"; break;
+  default: inviteLine = "ඔබගේ ගෞරවනීය පැමිණීම අපේක්ෂා කරමු";
 }
 
-// Set the text in HTML
-document.getElementById("invite-line").textContent = inviteLine;
-document.getElementById("guest-name").textContent = guestName;
+const inviteEl = document.getElementById("invite-line");
+const guestEl = document.getElementById("guest-name");
+
+inviteEl.textContent = inviteLine;
+
+// Typing animation for guest name
+function typeText(element, text, speed = 100) {
+  element.textContent = "";
+  let i = 0;
+  const interval = setInterval(() => {
+    element.textContent += text.charAt(i);
+    i++;
+    if (i >= text.length) clearInterval(interval);
+  }, speed);
+}
+
+// Delay before typing starts
+setTimeout(() => {
+  typeText(guestEl, guestName, 150); // adjust speed (ms) here
+}, 500);
