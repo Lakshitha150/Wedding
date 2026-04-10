@@ -22,10 +22,8 @@ html {
 .navbar-item {
   line-height: 38px;
   font-weight: 600;
-  text-transform: ;
   letter-spacing: 1px;
   font-size: 1rem;
-  box-shadow:  ;
 }
 
 .navbar-item.is-active{
@@ -95,7 +93,6 @@ html {
 .hero .hero-foot .hero-foot--wrapper .hero-menu-desktop {
   line-height: 38px;
   font-weight: 600;
-  text-transform: ;
   letter-spacing: 1px;
   font-size: 1rem;
 }
@@ -339,7 +336,6 @@ vertical-align: middle;
 .tempat {
   font-size: 1.4rem;
   font-family: 'Raleway', sans-serif;
-  font-size: ;
   margin-bottom: 50px;
 }
 
@@ -492,16 +488,12 @@ body.preloader-site {
 }
 
 
+
 .btn-cta:hover {
-  color:white;
   background-color: #bf7877;
-  font-size: 1.2rem;
-  border-radius: 10px;
   border: 2px solid #bf7877;
-  width:  210px;
-  height: 65px;
-  align-items: center;
-  margin: 1rem;
+  transform: scale(1.1);
+  box-shadow: 0 0 30px rgba(191, 120, 119, 1);
 }
 
 .btn-cta {
@@ -514,6 +506,8 @@ body.preloader-site {
   border-radius: 10px;
   align-items: center;
   margin: 1rem;
+  animation: pulseGlow 1.6s infinite;
+
 }
 
 .cashbac-logo-inline {
@@ -656,4 +650,19 @@ body.preloader-site {
   vertical-align: middle;
   text-align: center;
   padding: 10px;
+}
+
+@keyframes pulseGlow {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 10px rgba(153, 110, 109, 0.6);
+  }
+  50% {
+    transform: scale(1.08);
+    box-shadow: 0 0 25px rgba(153, 110, 109, 1);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 10px rgba(153, 110, 109, 0.6);
+  }
 }
