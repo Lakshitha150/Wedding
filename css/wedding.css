@@ -30,10 +30,6 @@ html {
   border-bottom: 2px solid #996E6D;
 }
 
-.a.navbar-item{
-  font-color: #996E6D;
-}
-
 
 .hero {
   /* Gradient overlay + local image */
@@ -665,4 +661,155 @@ body.preloader-site {
     transform: scale(1);
     box-shadow: 0 0 10px rgba(153, 110, 109, 0.6);
   }
+}
+
+.balloon {
+  position: absolute;
+  bottom: -40px;
+  width: 12px;
+  height: 12px;
+  background: rgba(255, 182, 193, 0.8);
+  border-radius: 50%;
+  animation: floatUp 8s infinite ease-in;
+  opacity: 0.7;
+}
+
+/* different positions */
+.balloon:nth-child(1) { left: 20%; animation-duration: 7s; }
+.balloon:nth-child(2) { left: 50%; animation-duration: 9s; background: rgba(255, 105, 180, 0.7); }
+.balloon:nth-child(3) { left: 80%; animation-duration: 6s; background: rgba(255, 160, 122, 0.7); }
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(-120px) scale(1.2);
+    opacity: 0;
+  }
+}
+.simple-footer {
+  position: relative;
+  background: #fff;
+  text-align: center;
+  padding: 25px 10px;
+  overflow: hidden;
+  font-family: sans-serif;
+}
+
+.footer-content {
+  position: relative;
+  z-index: 2;
+  font-size: 14px;
+  color: #444;
+}
+
+.hearts span {
+  position: absolute;
+  bottom: -20px;
+  width: 10px;
+  height: 10px;
+  background: #ff6b81;
+  transform: rotate(45deg);
+  animation: floatUp 6s linear infinite;
+  opacity: 0.7;
+}
+
+/* heart shape */
+.hearts span::before,
+.hearts span::after {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: #ff6b81;
+  border-radius: 50%;
+}
+
+.hearts span::before {
+  top: -5px;
+  left: 0;
+}
+
+.hearts span::after {
+  left: -5px;
+  top: 0;
+}
+
+/* different positions */
+.hearts span:nth-child(1) { left: 10%; animation-duration: 5s; }
+.hearts span:nth-child(2) { left: 25%; animation-duration: 7s; }
+.hearts span:nth-child(3) { left: 40%; animation-duration: 6s; }
+.hearts span:nth-child(4) { left: 65%; animation-duration: 8s; }
+.hearts span:nth-child(5) { left: 85%; animation-duration: 5.5s; }
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(0) scale(1) rotate(45deg);
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(-120px) scale(1.2) rotate(45deg);
+    opacity: 0;
+  }
+}
+/* ============================= */
+/* Floating Wedding Navbar */
+/* ============================= */
+
+.floating-navbar {
+  background: rgba(255, 255, 255, 0.80);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+  position: relative;
+  overflow: hidden;
+}
+
+/* floating soft glow */
+.floating-navbar::before {
+  content: "";
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  top: -50%;
+  left: -50%;
+  background: radial-gradient(circle, rgba(255,182,193,0.15), transparent 60%);
+  animation: floatGlow 8s linear infinite;
+}
+
+/* floating particles */
+.floating-navbar::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(circle, rgba(255,105,180,0.25) 2px, transparent 2px);
+  background-size: 30px 30px;
+  animation: floatDots 20s linear infinite;
+  opacity: 0.4;
+}
+
+@keyframes floatGlow {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(10px); }
+  100% { transform: translateY(0px); }
+}
+
+@keyframes floatDots {
+  0% { transform: translateY(0px); }
+  100% { transform: translateY(-40px); }
+}
+
+/* keep menu items above animation */
+.navbar-item,
+.navbar-burger {
+  position: relative;
+  z-index: 2;
 }
